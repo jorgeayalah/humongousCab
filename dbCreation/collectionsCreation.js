@@ -1,2 +1,3 @@
 
-  
+  // Creation of collections
+  db.
