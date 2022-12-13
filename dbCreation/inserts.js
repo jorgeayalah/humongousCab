@@ -30,3 +30,41 @@
   
 //     }
 //   )
+
+
+// INSERTING  DRIVERS
+
+db.drivers.insert(
+    {
+        "_id" : NumberInt(22060912),
+        "name" : "Jalen",
+        "lastName" : "Paul",
+        "pronouns"  : "he/his/him",
+        "dateOfBirth"   : new Date("1990-12-25"), 
+        "contactDetails": {
+            "phone" : "077799822221",
+            "workPhone" : "077799822233",
+            "email" : "jalenpaul789@gmail.com"
+        },
+        "address"   : {
+            "postcode" : "E1 4PU",
+            "street" : "Westfield Way",
+            "houseNumber" : "20a",
+            "city" : "London"
+        },
+        "employmentRec" : {
+            "employedSince": new Date("2021-08-20"),
+            "licenceId" : "NDFU957054SM9IJ",
+            "countryWhereIssued" : "Wales" 
+        },
+        "previousTwoRoles" : {
+            "roleOne"   : "Secretary",
+            "roleTwo"   : "Driver"
+        },
+        "disciplinaryProc"  : {
+            "amountOfWarnings"  : NumberInt(1),
+            "grumpyWhileDriving" : true
+        },
+        "shift"  : [NumberInt(1), NumberInt(2), NumberInt(3)]
+    }
+)
