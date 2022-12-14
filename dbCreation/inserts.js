@@ -349,9 +349,10 @@ db.cars.insertMany([
             "regDate": new Date("2018-05-21")
         },
         "brand": "Lexus",
+        "isLuxury": false,
         "lastMOT": new Date( "2022-06-18"),
-        "roadworthy": true, 
-        "inService": false,
+        "isRoadworthy": true, 
+        "isInService": false,
         "owner": NumberInt(22060904), //Belongs to Alice Crisp
         "noSeats": NumberInt(5)
     },
@@ -361,9 +362,10 @@ db.cars.insertMany([
             "regDate": new Date("2017-08-22")
         },
         "brand": "honda",
+        "isLuxury": false,
         "lastMOT": new Date( "2022-03-16"),
-        "roadworthy": true, 
-        "inService": false,
+        "isRoadworthy": true, 
+        "isInService": false,
         "owner": NumberInt(22060901), //Belongs to Alice Crisp
         "noSeats": NumberInt(5)
     },
@@ -373,9 +375,10 @@ db.cars.insertMany([
             "regDate": new Date("2019-10-13")
         },
         "brand": "bmw",
+        "isLuxury": false,
         "lastMOT": new Date( "2022-10-08"),
-        "roadworthy": true, 
-        "inService": false,
+        "isRoadworthy": true, 
+        "isInService": false,
         "owner": NumberInt(22060904), //Belongs to Alice Crisp
         "noSeats": NumberInt(7)
         
@@ -386,9 +389,10 @@ db.cars.insertMany([
         "regDate": new Date("2015-12-21")
         },
         "brand": "Mercedes",
+        "isLuxury": true,
         "lastMOT": new Date( "2022-12-18"),
-        "roadworthy": true, 
-        "inService": false,
+        "isRoadworthy": true, 
+        "isInService": false,
         "owner": NumberInt(1010101), //Belongs to Company
         "noSeats": NumberInt(5)
         
@@ -399,9 +403,10 @@ db.cars.insertMany([
         "regDate": new Date("2013-08-26")
         },
         "brand": "Toyota",
+        "isLuxury": false,
         "lastMOT": new Date( "2022-08-18"),
-        "roadworthy": true, 
-        "inService": false,
+        "isRoadworthy": true, 
+        "isInService": false,
         "owner": NumberInt(22060904), //Belongs to Alice Crisp
         "noSeats": NumberInt(5)
         
@@ -412,9 +417,24 @@ db.cars.insertMany([
         "regDate": new Date("2018-09-05")
         },
         "brand": "ford",
+        "isLuxury": false,
         "lastMOT": new Date( "2022-09-10"),
-        "roadworthy": true, 
-        "inService": false,
+        "isRoadworthy": true, 
+        "isInService": false,
+        "owner": NumberInt(1010101), //Belongs to Company
+        "noSeats": NumberInt(7)
+        
+    }
+    {
+        "registration":{
+        "number": "PZ65 WRT",
+        "regDate": new Date("2018-04-10")
+        },
+        "brand": "RangeRover",
+        "isLuxury": true,
+        "lastMOT": new Date( "2022-09-10"),
+        "isRoadworthy": true, 
+        "isInService": false,
         "owner": NumberInt(1010101), //Belongs to Company
         "noSeats": NumberInt(7)
         
@@ -538,40 +558,150 @@ db.operators.insertMany([
     }
 ])
 
-// // BOOKINGS
-// db.bookings.insertMany([
-//     {
-//         "bookingDate" : new Date(2022-12-11),
-//         "customer":
-//         {
-//             "name": Joe,
-//             "lastName":Schmoe
-//         },
-//         "noPassengers": NumberInt(2),
-//         "requests": "n/a",
-//         "phone": "04203334567",
-//         "addressStart"   : {
-//             "postcode" : "E1 4PU",
-//             "street" : "Westfield Way",
-//             "houseNumber" : "30b",
-//             "city" : "London"
-//         },
-//         //"startCoord":
-//         //"endCoord":
 
-//         "addressFinish"   : {
-//             "postcode" : "TW6 EGW",
-//             "street" : "Compass centre, Jackson Heights",
-//             "houseNumber" : "Airport terminal 5",
-//             "city" : "London"
-//         },
-//         "driv
+db.clients.insertMany([
 
+    {
+        "_id": "23405060",          //onoff via the phone
+        "name": "Jose",
+        "lastName": "Serrano",
+        "phone": "04203456906",
+    },
+    {
+        "_id": "23405061",          //regular corporate
+        "name": "Joe",
+        "lastName": "Schmoe",
+        "phone": "04203334567",
+        "email": "joes@gmail.com",
+        "isCorporate": true,        // schemaless
+        "corporation": "Google",
+        "reminder": 
+        {
+            "tenMin":       false,
+            "thirtyMin":    true,
+            "oneHour":      true,
+            "oneDay":       true
+        }
+    },
+    {
+        "_id": "23405062",          // regular private
+        "name": "Jessica",
+        "lastName": "Sweet",
+        "phone": "04205464567",
+        "email": "jessica.candy@gmail.com",
+        "isCorporate": false,        // schemaless
+        "reminder": 
+        {
+            "tenMin":       false,
+            "thirtyMin":    true,
+            "oneHour":      true,
+            "oneDay":       true
+        }
+    }
+])
 
+// BOOKINGS
+db.bookings.insertMany([
+    {
 
-//     }
-// ])
+        "bookingDate" : new Date(2022-12-11),
+        "frequency": 
+        {
+            "daily": false,
+            "weekly": false,
+            "monthly": true,
+            // "custom": {      // schemalessness
+            //     "mo": false,
+            //     "tu": false,                
+            //     "we": false,                
+            //     "th": false,                
+            //     "fr": false,                
+            //     "sa": false,                
+            //     "su": false,                
+            // }
+        },
+        "client":
+        {
+            "name": "Joe",
+            "lastName": "Schmoe",
+            "phone": "04203334567",
+        },
+        "noPassengers": NumberInt(1),
+        "wantsLuxury": false,
+        "requests": "n/a",
+        "addressStart"   : {
+            "postcode" : "E1 4PU",
+            "street" : "Westfield Way",
+            "houseNumber" : "30b",
+            "city" : "London"
+        },
+        "addressFinish"   : {
+            "postcode" : "TW6 EGW",
+            "street" : "Compass centre, Jackson Heights",
+            "houseNumber" : "Airport terminal 5",
+            "city" : "London"
+        },
+        //"startCoord":
+        //"endCoord":
+    },
+    {
 
+        "bookingDate" : new Date(2022-10-15),
+        "frequency": 
+        {
+            "daily": false,
+            "weekly": false,
+            "monthly": false,
+            "custom": {      // schemalessness
+                "mo": true,
+                "tu": false,                
+                "we": true,                
+                "th": false,                
+                "fr": true,                
+                "sa": false,                
+                "su": false,                
+            }
+        },
+        "client":
+        {
+            "name": "Jessica",
+            "lastName": "Sweet",
+            "phone": "04205464567",
+        },
+        "noPassengers": NumberInt(2),
+        "wantsLuxury": true,
+        "requests": "n/a",
+        "addressStart"   : {
+            "postcode" : "E1 3NS",
+            "street" : "Stayners Road",
+            "houseNumber" : "45c",
+            "city" : "London"
+        },
+        "addressFinish"   : {
+            "postcode" : "WC1E 7HU",
+            "street" : "Malet St",
+            "houseNumber" : "Senate House University of London",
+            "city" : "London"
+        },
+        //"startCoord":
+        //"endCoord":
+    }
+])
+
+db.payment.insertMany([
+    {
+        "bookingID":false,
+        "total": Number(45),
+        "method":
+        {
+            "debit": true,
+            "credit": false,
+            "applePay":false,
+
+        }
+
+    }
+])
 
 // QUERIES
 
