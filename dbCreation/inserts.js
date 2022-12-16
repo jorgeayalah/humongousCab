@@ -755,3 +755,83 @@ db.payment.insertMany([
 //     }
 //   )
 
+// db.drivers.aggregate([{
+//     '$match': {
+//         "revenue.salary.type.isFixed": false
+//     },
+//     '$project': {
+//         _id: 1, name: 1, lastName: 1, revenue: 1
+//     }
+// }]).pretty()
+
+// db.drivers.aggregate([{
+//     $match: {
+//         "revenue.salary.type.isFixed": false
+//     }
+// },
+// {
+//     $project: {
+//         _id: 1, name: 1, lastName: 1, revenue: 1
+//     }
+// }
+// ]).pretty()
+
+// db.cars.aggregate([
+//     {
+//     "$search": {
+//         "geoWithin": {
+//             "circle": {
+//                 "center": {
+//                     "type": "Point",
+//                     "coordinates" : [51.517775, -0.027087] 
+//                 },
+//                 "radius": 1600
+//             },
+//             "path": "location"
+//         }
+//     }
+// },
+//     {
+//     $limit: 2
+//     },
+//     {
+//         $project: {
+//         "_id": 1,
+//         "brand": 1
+//         }
+//     }
+// ])
+
+// db.cars.aggregate([
+//     {
+//       "$search": {
+//         "geoWithin": {
+//           "circle": {
+//             "center": {
+//               "type": "Point",
+//               "coordinates": [51.517775, -0.027087]
+//             },
+//             "radius": 1600
+//           },
+//           "path": "location"
+//         }
+//       }
+//     },
+//     {
+//       $limit: 2
+//     },
+//     {
+//       $project: {
+//         "_id": 0,
+//         "brand": 1,
+//         "owner": 1
+//       }
+//     }
+//   ])
+
+// db.drivers.aggregate([
+//     {
+//         $match: 
+//     }
+// ])
+
