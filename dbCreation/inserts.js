@@ -37,6 +37,7 @@ db.drivers.insertMany([
             "noon"   : true,
             "night"  : false
         },
+        "isAvailable": true, 
         "revenue": {
             "grossIncome": NumberInt(3600), // Total revenue drives produces for the company
             "salary": {
@@ -51,7 +52,7 @@ db.drivers.insertMany([
         }
     },
     {
-        "_id" : NumberInt(22060902),
+        "_id" : NumberInt(22060901),
         "name" : "Jorge",
         "lastName" : "Hernandez",
         "pronouns"  : "he/his/him",
@@ -85,6 +86,7 @@ db.drivers.insertMany([
             "noon"   : false,
             "night"  : true
         },
+        "isAvailable": true, 
         "revenue": {
             "grossIncome": NumberInt(2700), // Total revenue drives produces for the company
             "salary": {
@@ -99,7 +101,7 @@ db.drivers.insertMany([
         }
     },
     {
-        "_id" : NumberInt(22060901),
+        "_id" : NumberInt(22060902),
         "name" : "Olliver",
         "lastName" : "Williams",
         "pronouns"  : "he/his/him",
@@ -133,6 +135,7 @@ db.drivers.insertMany([
             "noon"   : false,
             "night"  : true
         },
+        "isAvailable": true, 
         "revenue": {
             "grossIncome": NumberInt(3350), // Total revenue drives produces for the company
             "salary": {
@@ -181,6 +184,7 @@ db.drivers.insertMany([
             "noon"   : false,
             "night"  : true
         },
+        "isAvailable": false,
         "revenue": {
             "grossIncome": NumberInt(3000), // Total revenue drives produces for the company
             "salary": {
@@ -229,6 +233,7 @@ db.drivers.insertMany([
             "noon"   : false,
             "night"  : true
         },
+        "isAvailable": false,
         "revenue": {
             "grossIncome": NumberInt(3400), // Total revenue drives produces for the company
             "salary": {
@@ -277,6 +282,7 @@ db.drivers.insertMany([
             "noon"   : false,
             "night"  : false
         },
+        "isAvailable": false,
         "revenue": {
             "grossIncome": NumberInt(3000), // Total revenue drives produces for the company
             "salary": {
@@ -325,12 +331,13 @@ db.drivers.insertMany([
             "noon"   : false,
             "night"  : false
         },
+        "isAvailable": false,
         "revenue": {
             "grossIncome": NumberInt(3300), // Total revenue drives produces for the company
             "salary": {
                 "type" : 
                 {
-                    "isFixed": true
+                    "isFixed": false
                 },
                 "value" : 0.34, // If fixed just substract qty from grossIncome
                                 // else (percentage) then multiply factor value by grossIncome
@@ -344,6 +351,7 @@ db.drivers.insertMany([
 // CARS
 db.cars.insertMany([
     {
+        "_id": NumberInt(70000220),
         "registration":{
             "number": "PZ65 WSN",
             "regDate": new Date("2018-05-21")
@@ -353,10 +361,15 @@ db.cars.insertMany([
         "lastMOT": new Date( "2022-06-18"),
         "isRoadworthy": true, 
         "isInService": false,
-        "owner": NumberInt(22060904), //Belongs to Alice Crisp
-        "noSeats": NumberInt(5)
+        "owner": NumberInt(22060900), //Belongs to Jalen
+        "noSeats": NumberInt(5),
+        "location": {
+            type: "Point",
+            coordinates: [51.522412, -0.042520] // Mile end
+        }
     },
     {
+        "_id": NumberInt(70000221),
         "registration":{
             "number": "PZ68 GRE",
             "regDate": new Date("2017-08-22")
@@ -366,10 +379,15 @@ db.cars.insertMany([
         "lastMOT": new Date( "2022-03-16"),
         "isRoadworthy": true, 
         "isInService": false,
-        "owner": NumberInt(22060901), //Belongs to Alice Crisp
-        "noSeats": NumberInt(5)
+        "owner": NumberInt(22060901), //Belongs to Jorge
+        "noSeats": NumberInt(5),
+        "location": {
+            type: "Point",
+            coordinates: [51.506549, -0.027246] // Canary Wharf
+        }
     },
     {
+        "_id": NumberInt(70000222),
         "registration":{
             "number": "NU65 FRE",
             "regDate": new Date("2019-10-13")
@@ -379,11 +397,15 @@ db.cars.insertMany([
         "lastMOT": new Date( "2022-10-08"),
         "isRoadworthy": true, 
         "isInService": false,
-        "owner": NumberInt(22060904), //Belongs to Alice Crisp
-        "noSeats": NumberInt(7)
-        
+        "owner": NumberInt(22060902), //Belongs to Olliver
+        "noSeats": NumberInt(7),
+        "location": {
+            type: "Point",
+            coordinates: [51.501285, -0.130141] //Westminster
+        }
     },
     {
+        "_id": NumberInt(70000223),
         "registration":{
         "number": "PZ46 NWA",
         "regDate": new Date("2015-12-21")
@@ -393,11 +415,15 @@ db.cars.insertMany([
         "lastMOT": new Date( "2022-12-18"),
         "isRoadworthy": true, 
         "isInService": false,
-        "owner": NumberInt(1010101), //Belongs to Company
-        "noSeats": NumberInt(5)
-        
+        "owner": NumberInt(22060903), //Belongs to Henry
+        "noSeats": NumberInt(5),
+        "location": {
+            type: "Point",
+            coordinates: [51.539052, -0.138681] //Camden
+        }
     },
     {
+        "_id": NumberInt(70000224),
         "registration":{
         "number": "LY55 DTA",
         "regDate": new Date("2013-08-26")
@@ -407,11 +433,15 @@ db.cars.insertMany([
         "lastMOT": new Date( "2022-08-18"),
         "isRoadworthy": true, 
         "isInService": false,
-        "owner": NumberInt(22060904), //Belongs to Alice Crisp
-        "noSeats": NumberInt(5)
-        
+        "owner": NumberInt(22060904), //Belongs to Christina
+        "noSeats": NumberInt(5),
+        "location": {
+            type: "Point",
+            coordinates: [51.482074, -0.005441] //Greenwich
+        }
     },
     {
+        "_id": NumberInt(70000225),
         "registration":{
         "number": "PZ65 WSN",
         "regDate": new Date("2018-09-05")
@@ -421,11 +451,15 @@ db.cars.insertMany([
         "lastMOT": new Date( "2022-09-10"),
         "isRoadworthy": true, 
         "isInService": false,
-        "owner": NumberInt(1010101), //Belongs to Company
-        "noSeats": NumberInt(7)
-        
-    }
+        "owner": NumberInt(1010101), //Belongs to Alice
+        "noSeats": NumberInt(7),
+        "location": {
+            type: "Point",
+            coordinates: [51.518854, -0.079414] //Liverpool Stret
+        }
+    },
     {
+        "_id": NumberInt(70000226),
         "registration":{
         "number": "PZ65 WRT",
         "regDate": new Date("2018-04-10")
@@ -435,9 +469,12 @@ db.cars.insertMany([
         "lastMOT": new Date( "2022-09-10"),
         "isRoadworthy": true, 
         "isInService": false,
-        "owner": NumberInt(1010101), //Belongs to Company
-        "noSeats": NumberInt(7)
-        
+        "owner": NumberInt(22060906), //Belongs to Muhammad
+        "noSeats": NumberInt(7),
+        "location": {
+            type: "Point",
+            coordinates: [51.510470, -0.185101] //Notting Hill
+        }
     }
       
 ])
@@ -560,15 +597,14 @@ db.operators.insertMany([
 
 
 db.clients.insertMany([
-
     {
-        "_id": "23405060",          //onoff via the phone
+        "_id": NumberInt(23405060),          //onoff via the phone
         "name": "Jose",
         "lastName": "Serrano",
         "phone": "04203456906",
     },
     {
-        "_id": "23405061",          //regular corporate
+        "_id": NumberInt(23405061),          //regular corporate
         "name": "Joe",
         "lastName": "Schmoe",
         "phone": "04203334567",
@@ -584,7 +620,7 @@ db.clients.insertMany([
         }
     },
     {
-        "_id": "23405062",          // regular private
+        "_id": NumberInt(23405062),          // regular private
         "name": "Jessica",
         "lastName": "Sweet",
         "phone": "04205464567",
@@ -603,7 +639,7 @@ db.clients.insertMany([
 // BOOKINGS
 db.bookings.insertMany([
     {
-
+        "_id": NumberInt(5000010),
         "bookingDate" : new Date(2022-12-11),
         "frequency": 
         {
@@ -645,7 +681,7 @@ db.bookings.insertMany([
         //"endCoord":
     },
     {
-
+        "_id": NumberInt(5000011),
         "bookingDate" : new Date(2022-10-15),
         "frequency": 
         {
@@ -690,7 +726,8 @@ db.bookings.insertMany([
 
 db.payment.insertMany([
     {
-        "bookingID":false,
+        "_id": NumberInt(90000),
+        "bookingID": NumberInt(5000010),
         "total": Number(45),
         "method":
         {
