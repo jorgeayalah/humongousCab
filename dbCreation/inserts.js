@@ -827,11 +827,19 @@ db.payment.insertMany([
 //         "owner": 1
 //       }
 //     }
-//   ])
+//   ]).pretty()
 
 // db.drivers.aggregate([
 //     {
-//         $match: 
+//         "$match": {
+//             "disciplinaryProc.amountOfWarnings": { $gt: 0 },
+//             "shift.night": true
+//         }
+//     },
+//     {
+//         $project: {
+//             _id: 1, name: 1, lastName: 1, pronouns: 1, disciplinaryProc: {amountOfWarnings: 1}, shift: 1
+//         }
 //     }
-// ])
+// ]).pretty()
 
